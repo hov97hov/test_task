@@ -28,6 +28,9 @@ class MarkController extends AdminController
 
         $grid->column('id', __('ID'))->sortable();
         $grid->column('title', __('Title'));
+        $grid->image()->display(function ($pictures) {
+            return '<img style="width: 100px" src="/uploads/'.$pictures.'" />';
+        });
 
         return $grid;
     }
@@ -44,6 +47,7 @@ class MarkController extends AdminController
 
         $show->field('id', __('ID'));
         $show->field('title', __('Title'));
+        $show->field('image', __('image'));
 
         return $show;
     }
